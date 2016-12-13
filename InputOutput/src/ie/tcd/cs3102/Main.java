@@ -70,8 +70,10 @@ public class Main {
         int line = 0;
         while (in.hasNextLine()) {
             line++;
+
             String address = null, name = null;
             int ssn = -1;
+
             if (in.hasNext()) {
                 address = in.next().trim();
             }
