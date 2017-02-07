@@ -34,24 +34,12 @@ public class LinkedList<AnyType> {
     }
 
     /**
-     * Insert a new value directly in front of the specified value
+     * Insert a new value in the correct sorted position
+     * Assume ascending
      *
-     * @param existingValue the value before which to insert
      * @param newValue the new value to insert
      */
-    public void insertBefore(AnyType existingValue, AnyType newValue) {
-
-        // Provide your implementation here
-
-    }
-
-    /**
-     *  Insert a new value directly after of the specified value
-     *
-     * @param existingValue the value before which to insert
-     * @param newValue the new value to insert
-     */
-    public void insertAfter(AnyType existingValue, AnyType newValue) {
+    public void insert(AnyType newValue) {
 
         // Provide your implementation here
 
