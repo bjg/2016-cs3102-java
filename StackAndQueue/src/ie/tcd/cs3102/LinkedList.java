@@ -1,18 +1,18 @@
 package ie.tcd.cs3102;
 
-import java.util.Comparator;
-
 /**
  * Created by brian on 31/01/2017.
  */
 public class LinkedList<AnyType extends Comparable<AnyType>> {
     private Node head;
+    private Node last;
 
     /**
      * Constructor
      */
     public LinkedList() {
         head = null;
+        last = null;
     }
 
     /**
@@ -23,6 +23,35 @@ public class LinkedList<AnyType extends Comparable<AnyType>> {
     public void push(AnyType newValue) {
         Node node = new Node(newValue, head);
         head = node;
+        if (last == null) {
+            last = node;
+        }
+    }
+
+    /**
+     * Remove the element on top of the stack (if any)
+     */
+    public AnyType removeFirst() {
+        if (head != null) {
+            Node node = head;
+            head = head.next;
+            return (AnyType) node.value;
+        }
+        return null;
+    }
+
+    public AnyType lookFirst() {
+        if (head != null) {
+            return (AnyType) head.value;
+        }
+        return null;
+    }
+
+    /**
+     *
+     */
+    public boolean isEmpty() {
+        return head == null;
     }
 
     /**
@@ -31,8 +60,14 @@ public class LinkedList<AnyType extends Comparable<AnyType>> {
      * @param newValue the new value to append
      */
     public void append(AnyType newValue) {
-
-        // Provide your implementation here
+        Node node = new Node(newValue, null);
+        if (head == null) {
+            head = node;
+        }
+        if (last != null) {
+            last.next = node;
+        }
+        last = node;
     }
 
     /**
@@ -42,20 +77,7 @@ public class LinkedList<AnyType extends Comparable<AnyType>> {
      * @param newValue the new value to insert
      */
     public void insert(AnyType newValue) {
-        Node current = head, previous = null;
-        for (;;) {
-            if (current == null || current.value.compareTo(newValue) > 0) {
-                Node node = new Node(newValue, current);
-                if (previous == null) {
-                    head = node;
-                } else {
-                    previous.next = node;
-                }
-                break;
-            }
-            previous = current;
-            current = current.next;
-        }
+        // Provide your implementation here
     }
 
     /**
@@ -109,7 +131,7 @@ public class LinkedList<AnyType extends Comparable<AnyType>> {
     }
 
     // Private inner class encapsulating value
-    private static class Node<AnyType extends Comparable<AnyType>> {
+    protected static class Node<AnyType extends Comparable<AnyType>> {
         AnyType value;
         Node next;
 

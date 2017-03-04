@@ -3,20 +3,11 @@ package ie.tcd.cs3102;
 public class Main {
 
     public static void main(String[] args) {
-        LinkedList list = new LinkedList<String>();
+        LinkedList list = new LinkedList<Integer>();
 
-        list.push("a");
-        list.push("b");
-        list.push("c");
-        System.out.println(list);
-
-        System.out.println(list.isPresent("b"));
-        System.out.println(list.isPresent("z"));
-
-        list.delete("c");
-        System.out.println(list.isPresent("c"));
-        list.delete("a");
-        System.out.println(list.isPresent("a"));
+        for (int n : new int[]{4,3,6,1,8,3,2,8,9,0,1,2,3,4,9}) {
+            list.insert(n);
+        }
         System.out.println(list);
     }
 }
